@@ -13,11 +13,17 @@ namespace HotelNoSql.Data
     {
 
         private readonly IMongoCollection<Guest> _guests;
+       // private readonly IMongoCollection<GuestPhonenumber> _guestPhonenumbers;
+        private readonly IMongoCollection<Room> _rooms;
+        private readonly IMongoCollection<Reservation> _reservations;
+
         public MongoDbClient(IConfiguration configuration )
         {
             var client = new MongoClient(configuration.GetSection("MongoDb").GetSection("ConnectionString").Value);
             var db = client.GetDatabase(configuration.GetSection("MongoDb").GetSection("DatabaseName").Value);
             _guests = db.GetCollection<Guest>(configuration.GetSection("MongoDb").GetSection("GuestsCollectionName").Value);
+            _rooms = db.GetCollection<Room>(configuration.GetSection("MongoDb").GetSection("RoomsCollectionName").Value);
+            _reservations = db.GetCollection<Reservation>(configuration.GetSection("MongoDb").GetSection("ReservationsCollectionName").Value);
         }
 
         
@@ -26,5 +32,16 @@ namespace HotelNoSql.Data
         {
             return _guests;
         }
+       
+        public IMongoCollection<Room> RoomsCollection()
+        {
+            return _rooms;
+        }
+
+        public IMongoCollection<Reservation> ReservationsCollection()
+        {
+            return _reservations;
+        }
+
     }
 }

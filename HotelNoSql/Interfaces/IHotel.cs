@@ -16,8 +16,12 @@ namespace HotelNoSql.Interfaces
         Guest PutGuest(Guest guest);
 
         void DeleteGuest(string id);
-        
-
         #endregion
+
+        List<Room> GetRooms();
+       List<Reservation> GetReservations();
+
+        List<ReservationView> GetFullReservations();
+        void PostReservation(Reservation res);
     }
 }

@@ -24,17 +24,22 @@ namespace HotelNoSql.Controllers
         [HttpPost]
         public IActionResult PostGuest(CreateGuest createGuest)
         {
-            Guest guest = new Guest
+            
+           Guest guest = new Guest
             {
                 FirstName = createGuest.FirstName,
                 LastName = createGuest.LastName,
-                Email = createGuest.Email
-            };
+                Email = createGuest.Email,
+                GuestPhonenumbers= createGuest.GuestPhonenumbers
+           };
 
             _hotel.PostGuest(guest);
-         return new CreatedAtRouteResult("GetGuest", new { id =guest.Id }, guest);
+         
+            return new CreatedAtRouteResult("GetGuest", new { id =guest.Id }, guest);
 
         }
+        
+        
         [HttpGet("{id}", Name= "GetGuest")]
         public IActionResult GetGuest(string id)
         {

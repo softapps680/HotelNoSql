@@ -10,5 +10,9 @@ namespace HotelNoSql.Interfaces
     public interface IMongoDbClient
     {
         IMongoCollection<Guest> GuestCollection();
+      //  IMongoCollection<GuestPhonenumber> GuestPhoneNumberCollection();
+        IMongoCollection<Room> RoomsCollection();
+        //  IMongoCollection<RoomType> RoomTypesCollection();
+        IMongoCollection<Reservation> ReservationsCollection();
     }
 }

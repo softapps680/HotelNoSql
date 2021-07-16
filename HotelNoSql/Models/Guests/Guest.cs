@@ -14,5 +14,8 @@ namespace HotelNoSql.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
+
+        [BsonRequired]
+        public List<GuestPhonenumber> GuestPhonenumbers { get; set; }
     }
 }
