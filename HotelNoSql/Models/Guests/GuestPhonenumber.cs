@@ -8,10 +8,7 @@ namespace HotelNoSql.Models
 {
     public class GuestPhonenumber
     {
-     
-        public string PhoneNumber { get; set; }
+     public string PhoneNumber { get; set; }
 
-        
-     
     }
 }

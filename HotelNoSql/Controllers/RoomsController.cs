@@ -28,11 +28,11 @@ namespace HotelNoSql.Controllers
             return new OkObjectResult(_hotel.GetRooms());
         }
 
-       /* [HttpGet("GetFreeRooms")]
+        [HttpGet("GetFreeRooms")]
         public IActionResult GetFreeRooms()
         {
             return new OkObjectResult(_hotel.GetFreeRooms());
-        }*/
+        }
 
         
        

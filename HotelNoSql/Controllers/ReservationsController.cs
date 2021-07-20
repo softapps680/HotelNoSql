@@ -24,28 +24,30 @@ namespace HotelNoSql.Controllers
         {
             return new OkObjectResult(_hotel.GetReservations());
         }
+       
         [HttpPost]
         public IActionResult PostReservation(ReservationCreate res)
         {
 
             Reservation reservation = new Reservation
             {
-                GuestId=res.GuestId,
-                RoomId=res.RoomId,
-                CheckInDate=res.CheckInDate,
-                CheckOutDate=res.CheckOutDate
+
+                CheckInDate = res.CheckInDate,
+                CheckOutDate = res.CheckOutDate,
+                Room = res.Room,
+                Guest = res.Guest,
+                PaymentMethod = res.PaymentMethod
             };
+                
+               
+         
 
             _hotel.PostReservation(reservation);
 
             return new CreatedAtRouteResult("GetGuest", new { id = reservation.Id }, reservation);
 
         }
-        [HttpGet("GetFullReservations")]
-        public IActionResult GetFullReservations()
-        {
-            return new OkObjectResult(_hotel.GetFullReservations());
-        }
+        
     }
 }
 

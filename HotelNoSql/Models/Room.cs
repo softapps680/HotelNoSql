@@ -15,7 +15,7 @@ namespace HotelNoSql.Models
 
        public string RoomTypeName { get; set; }
        
-      public decimal Price { get; set; }
+        public decimal Price { get; set; }
 
         
 

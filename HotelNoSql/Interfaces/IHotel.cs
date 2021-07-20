@@ -19,9 +19,10 @@ namespace HotelNoSql.Interfaces
         #endregion
 
         List<Room> GetRooms();
-       List<Reservation> GetReservations();
+        List<Room> GetFreeRooms();
+        List<Reservation> GetReservations();
 
-        List<ReservationView> GetFullReservations();
+        
         void PostReservation(Reservation res);
     }
 }
